@@ -1,14 +1,13 @@
-import React from 'react'
+import axios from 'axios';
 
+export  const getMovies = async () => {
+	try {
+		const response = await axios.get(
+			'https://api.themoviedb.org/3/movie/popular?api_key=f39cfec1279850f323e6ac1c60aa5dc4&language=es-ES'
+		);
+		return response.data;
+	} catch (error) {
+		throw error;
+	}
+};
 
-const moviesResp = await fetch(
-    'https://api.themoviedb.org/3/movie/popular?api_key=f39cfec1279850f323e6ac1c60aa5dc4&language=es-ES'
-);
-
-const Api = () => {
-  return (
-    <div>Api</div>
-  )
-}
-
-export default Api
