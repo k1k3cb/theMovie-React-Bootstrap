@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
-const ButtonGroupComponent = () => {
-	const [radioValue, setRadioValue] = useState('1');
+const ButtonGroupComponent = ({ onCategoryChange, currentCategory }) => {
+	// const [radioValue, setRadioValue] = useState('1');
 
 	const radios = [
 		{ name: 'Top 10 películas', value: '1' },
@@ -22,8 +22,8 @@ const ButtonGroupComponent = () => {
 						variant={idx % 2 ? 'outline-primary' : 'outline-success'}
 						name='radio'
 						value={radio.value}
-						checked={radioValue === radio.value}
-						onChange={e => setRadioValue(e.currentTarget.value)}
+						checked={currentCategory  === radio.value}
+						onChange={() => onCategoryChange(radio.value)}
 					>
 						{radio.name}
 					</ToggleButton>

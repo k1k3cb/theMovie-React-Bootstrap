@@ -30,8 +30,6 @@ const SearchBar = ({ onSearch }) => {
 				placeholder='Búsqueda por Título | Overview | Género'
 				value={search}
 				onChange={searchedWord}
-				// aria-label='Username'
-				// aria-describedby='basic-addon1'
 			/>
 		</InputGroup>
 	);
