@@ -4,7 +4,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const ButtonGroupComponent = () => {
-	
 	const [radioValue, setRadioValue] = useState('1');
 
 	const radios = [
@@ -13,7 +12,7 @@ const ButtonGroupComponent = () => {
 		{ name: 'Series', value: '3' }
 	];
 	return (
-		<div className='d-flex justify-content-center'>
+		<div className='text-center'>
 			<ButtonGroup size='lg' className='mb-5 shadow '>
 				{radios.map((radio, idx) => (
 					<ToggleButton

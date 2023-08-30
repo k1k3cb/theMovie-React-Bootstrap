@@ -1,10 +1,20 @@
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
+	const [search, setSearch] = useState('');
+
+	const searchedWord = e => {
+		const searchTerm = e.target.value;
+		// console.log(searchTerm);
+		setSearch(searchTerm);
+		onSearch(searchTerm);
+	};
+
 	return (
 		<InputGroup className='mb-5 w-75 m-auto'>
-			<InputGroup.Text id='basic-addon1'>
+			<InputGroup.Text>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='16'
@@ -18,8 +28,10 @@ const SearchBar = () => {
 			</InputGroup.Text>
 			<Form.Control
 				placeholder='Búsqueda por Título | Overview | Género'
-				aria-label='Username'
-				aria-describedby='basic-addon1'
+				value={search}
+				onChange={searchedWord}
+				// aria-label='Username'
+				// aria-describedby='basic-addon1'
 			/>
 		</InputGroup>
 	);
