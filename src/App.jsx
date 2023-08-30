@@ -6,6 +6,9 @@ import { v4 } from 'uuid';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import SearchBar from './components/SearchBar/SearchBar';
+
+import ButtonGroupComponent from './components/ButtonGroup/ButtonGroup';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -26,8 +29,11 @@ const App = () => {
 
 	return (
 		<>
-			<h1>Núcleo de la aplicación</h1>;
-			<Container fluid  >
+		<div className='my-5'>
+			<h1 className='d-flex justify-content-center '>Buscador de películas</h1>;
+			<SearchBar />
+			<ButtonGroupComponent  />
+			<Container fluid>
 				<Row xs={1} md={3} lg={4} className='g-3'>
 					{movies.map(movie => (
 						<Col key={v4()} className='d-flex justify-content-center'>
@@ -35,7 +41,7 @@ const App = () => {
 						</Col>
 					))}
 				</Row>
-			</Container>
+			</Container></div>
 		</>
 	);
 };
