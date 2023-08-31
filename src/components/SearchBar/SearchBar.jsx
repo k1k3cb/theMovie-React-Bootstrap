@@ -12,6 +12,8 @@ const SearchBar = ({ onSearch }) => {
 		onSearch(searchTerm);
 	};
 
+	
+
 	return (
 		<InputGroup className='mb-5 w-75 m-auto'>
 			<InputGroup.Text>
@@ -27,7 +29,7 @@ const SearchBar = ({ onSearch }) => {
 				</svg>
 			</InputGroup.Text>
 			<Form.Control
-				placeholder='Búsqueda por Título | Overview | Género'
+				placeholder='Búsqueda por Título | Overview | Título Original'
 				value={search}
 				onChange={searchedWord}
 			/>

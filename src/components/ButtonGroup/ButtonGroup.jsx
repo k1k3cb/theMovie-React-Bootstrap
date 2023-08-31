@@ -22,7 +22,7 @@ const ButtonGroupComponent = ({ onCategoryChange, currentCategory }) => {
 						variant={idx % 2 ? 'outline-primary' : 'outline-success'}
 						name='radio'
 						value={radio.value}
-						checked={currentCategory  === radio.value}
+						checked={currentCategory === radio.value}
 						onChange={() => onCategoryChange(radio.value)}
 					>
 						{radio.name}
