@@ -1,9 +1,15 @@
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, cleanSearch }) => {
 	const [search, setSearch] = useState('');
+
+	useEffect(() => {
+		if (cleanSearch) {
+			clearSearch();
+		}
+	}, [cleanSearch]);
 
 	const searchedWord = e => {
 		const searchTerm = e.target.value;
@@ -12,7 +18,10 @@ const SearchBar = ({ onSearch }) => {
 		onSearch(searchTerm);
 	};
 
-	
+	const clearSearch = () => {
+		setSearch('');
+		onSearch(''); // Esto vaciará la búsqueda
+	};
 
 	return (
 		<InputGroup className='mb-5 w-75 m-auto'>

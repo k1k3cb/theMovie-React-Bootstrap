@@ -14,7 +14,8 @@ const App = () => {
 	const [filteredMovies, setFilteredMovies] = useState([]);
 	const [currentCategory, setCurrentCategory] = useState('1');
 	const [noResults, setNoResults] = useState(false);
-	
+	const [cleanSearchInput, setCleanSearchInput] = useState(false);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -35,7 +36,9 @@ const App = () => {
 					setFilteredMovies(moviesData.results);
 					console.log(moviesData.results);
 				}
+
 				setNoResults(false);
+				setCleanSearchInput(true);
 			} catch (error) {
 				console.log(error);
 			}
@@ -45,14 +48,23 @@ const App = () => {
 	}, [currentCategory]); // Ejecutar el efecto cuando cambie la categoría actual
 
 	const handleSearch = searchTerm => {
-		const filtered = movies.filter(
-			movie =>
-				movie.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				movie.overview.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				movie.original_title.toLowerCase().includes(searchTerm.toLowerCase()) || // Corrección aquí
-				(movie.original_name &&
-					movie.original_name.toLowerCase().includes(searchTerm.toLowerCase()))
-		);
+		const filtered = movies.filter(movie => {
+			const title = movie.title ? movie.title.toLowerCase() : ''; // Verificar si movie.title es undefined
+			const overview = movie.overview ? movie.overview.toLowerCase() : ''; // Verificar si movie.overview es undefined
+			const originalTitle = movie.original_title
+				? movie.original_title.toLowerCase()
+				: ''; // Verificar si movie.original_title es undefined
+			const originalName = movie.original_name
+				? movie.original_name.toLowerCase()
+				: ''; // Verificar si movie.original_name es undefined
+
+			return (
+				title.includes(searchTerm.toLowerCase()) ||
+				overview.includes(searchTerm.toLowerCase()) ||
+				originalTitle.includes(searchTerm.toLowerCase()) ||
+				originalName.includes(searchTerm.toLowerCase())
+			);
+		});
 		//guardamos el resultado de la busqueda
 		setFilteredMovies(filtered);
 
@@ -63,17 +75,18 @@ const App = () => {
 			setNoResults(false);
 		}
 	};
+
 	//al pulsar en el boton cambiamos la categoria
 	const handleCategoryChange = category => {
 		setCurrentCategory(category);
-		setSearch('')
+		setCleanSearchInput(false);
 	};
 
 	return (
 		<>
 			<div className='my-5'>
 				<h1 className='text-center '>Buscador de películas</h1>;
-				<SearchBar onSearch={handleSearch}  />
+				<SearchBar onSearch={handleSearch} cleanSearch={cleanSearchInput} />
 				<ButtonGroupComponent
 					onCategoryChange={handleCategoryChange}
 					currentCategory={currentCategory} // Pasar la categoría actual al componente ButtonGroupComponent
