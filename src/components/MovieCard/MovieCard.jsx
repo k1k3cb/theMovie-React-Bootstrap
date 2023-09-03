@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
 	return (
@@ -11,8 +12,12 @@ const MovieCard = ({ movie }) => {
 					src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
 				/>
 				<Card.Body>
-					<Card.Title className='fw-bold'>{movie.title || movie.name}</Card.Title>
-					<Card.Text style={{ height: '15rem' }} className='overflow-hidden'>{movie.overview ? movie.overview : 'Overview no disponible'}</Card.Text>
+					<Card.Title className='fw-bold'>
+						{movie.title || movie.name}
+					</Card.Title>
+					<Card.Text style={{ height: '15rem' }} className='overflow-hidden'>
+						{movie.overview ? movie.overview : 'Overview no disponible'}
+					</Card.Text>
 				</Card.Body>
 				<ListGroup className='list-group-flush'>
 					<ListGroup.Item style={{ height: '5rem' }}>
@@ -36,7 +41,9 @@ const MovieCard = ({ movie }) => {
 						</svg>{' '}
 					</ListGroup.Item>
 				</ListGroup>
-				<Button variant='primary'>Ver más</Button>
+				<Link to={`/movie/${movie.id}`}>
+					<Button variant='primary' className='w-100'>Ver más</Button>
+				</Link>
 			</Card>
 		</>
 	);
