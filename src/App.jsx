@@ -11,9 +11,10 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 	return (
 		<BrowserRouter>
-			<MainComponent movies={movies} setMovies={setMovies}/>
+			
 			<Routes>
 				<Route path='/' element={<Navigate to='/movie' />} />
+				<Route path='/movie' element={<MainComponent movies={movies} setMovies={setMovies} />} />
 				<Route path='/movie/:id' element={<SingleMovie movies={movies} />} />
 			</Routes>
 		</BrowserRouter>
