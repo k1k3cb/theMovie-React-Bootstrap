@@ -1,11 +1,11 @@
 # Buscador películas
 
-![Imagen del proyecto](https://github.com/k1k3cb/Rock-Paper-Scissors-game/blob/main/src/assets/project_captures/home-game.jpg?raw=true)
+![Imagen del proyecto](https://github.com/k1k3cb/theMovie-React-Bootstrap/blob/main/public/sceenshoot_home.jpg)
 
 ## Ejemplo en vivo
  
 
-- [Enlace al proyecto](https://rock-paper-scissors-game-5u14.onrender.com)
+- [Enlace al proyecto](https://themovie-react-bootstrap.onrender.com)
 
 
 ## Descripción 📑
@@ -40,9 +40,9 @@ Mediante este proyecto he aprendido a trabajar en React, usando componentes de B
 
 Si quieres echar un vistazo al proyecto, te recomiendo:
 
-![Captura del proyecto](https://github.com/k1k3cb/Rock-Paper-Scissors-game/blob/main/src/assets/project_captures/simple-mode.jpg?raw=true)
+![Captura del proyecto](https://github.com/k1k3cb/theMovie-React-Bootstrap/blob/main/public/sceenshoot_home.jpg)
 
-![Captura del proyecto](https://github.com/k1k3cb/Rock-Paper-Scissors-game/blob/main/src/assets/project_captures/advanced-mode.jpg?raw=true)
+![Captura del proyecto](https://github.com/k1k3cb/theMovie-React-Bootstrap/blob/main/public/sceenshoot_single.jpg)
 
 
 
