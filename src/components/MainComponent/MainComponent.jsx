@@ -83,7 +83,7 @@ const MainComponent = ({ movies, setMovies }) => {
 		setCleanSearchInput(false);
 	};
 	return (
-		<div className='my-5'>
+		<div className='my-5 '>
 			<h1 className='text-center '>Buscador de películas</h1>;
 			<SearchBar onSearch={handleSearch} cleanSearch={cleanSearchInput} />
 			<ButtonGroupComponent

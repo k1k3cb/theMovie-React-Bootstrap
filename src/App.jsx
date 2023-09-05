@@ -5,16 +5,16 @@ import SingleMovie from './pages/SingleMovie';
 import MainComponent from './components/MainComponent/Maincomponent';
 import { useState } from 'react';
 
-
 const App = () => {
-
 	const [movies, setMovies] = useState([]);
 	return (
 		<BrowserRouter>
-			
 			<Routes>
 				<Route path='/' element={<Navigate to='/movie' />} />
-				<Route path='/movie' element={<MainComponent movies={movies} setMovies={setMovies} />} />
+				<Route
+					path='/movie'
+					element={<MainComponent movies={movies} setMovies={setMovies} />}
+				/>
 				<Route path='/movie/:id' element={<SingleMovie movies={movies} />} />
 			</Routes>
 		</BrowserRouter>
